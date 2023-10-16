@@ -20,7 +20,9 @@ body {
   text-align: center;
   background: #1abc9c;
   color: white;
-  padding: 30vh; /* Set the padding to 10% of the viewport height (vh) */
+  padding: 30vh 0; /* Set the padding to 30vh (30% of the viewport height) for top and bottom, and 0 for left and right */
+  margin: 0; /* Remove margin to ensure full-width header */
+  height: calc(100vh - 30vh); /* Calculate the height to fill the remaining viewport height */
 }
 
 /* Sticky navbar - toggles between relative and fixed, depending on the scroll position */
