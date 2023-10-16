@@ -37,15 +37,15 @@ body {
   color: inherit; /* Inherit the color from the parent element */
 }
   
-/* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
+/* Sticky navbar - toggles between relative and fixed, depending on the scroll position */
 .navbar {
   overflow: hidden;
-  background-color: #333;
+  background-color: #fe6d00;
   position: sticky;
   position: -webkit-sticky;
   top: 0;
-  display: flex; /* Center the navigation links horizontally */
-  justify-content: center; /* Center the links horizontally */
+  display: flex;
+  justify-content: center;
 }
 
 /* Style the navigation bar links */
@@ -58,8 +58,14 @@ body {
 
 /* Change color on hover */
 .navbar a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: #df481a;
+  color: white;
+}
+
+/* Active/current link */
+.navbar a.active {
+  background-color: #df481a;
+  color: white;
 }
 
 /* Active/current link */
