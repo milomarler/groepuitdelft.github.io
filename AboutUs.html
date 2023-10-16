@@ -29,6 +29,14 @@ body {
   font-size: 40px;
 }
 
+.header a {
+  display: block;
+  height: 100%; /* Ensure the anchor fills the entire header */
+  width: 100%;
+  text-decoration: none; /* Remove underline on the anchor text */
+  color: inherit; /* Inherit the color from the parent element */
+}
+  
 /* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
 .navbar {
   overflow: hidden;
