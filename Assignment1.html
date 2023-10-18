@@ -84,11 +84,11 @@ body {
   padding: 20px;
 }
 
-/* Fake image, just for this example */
-.fakeimg {
-  background-color: #aaa;
+/* Images */
+.full-width-image {
   width: 100%;
-  padding: 20px;
+  height: auto;
+  display: block;
 }
 
 /* Footer */
@@ -138,7 +138,7 @@ body {
   <p><i>Paris is hosting the Paralympics in 2024. One of the events at the Paralympics is an open water swimming event in the Seine (apparently the water is clean or so the French say). Since the City of Amsterdam thinks it is beter than Paris, they want to host an event before the Paralympics, snubbing the Parisians. The idea is to host a 5km. open water swimming event through the canals of Amsterdam. You are asked by the municipality of Amsterdam to advise on the feasibility of the event from the perspective of the safety of the partaking athletes from an environmental perspective. The event is going to be hosted in May.</i></p>
   <br>
   <h2>Impact on commercial water transport</h2>
-  <div class="fakeimg" style="height:200px;">Image</div>
+  <img src="Water 1.png" alt="Commercial water routes" class="full-width-image">
   <p><b>Data type:</b> Geopackage<br><b>Numerical:</b> Non-numerical<br><b>Python suitability:</b>  Yes, to read and write for this data type you can install Geopandas library along with Fiona and Shapely<br><b>Geometrical type geo-data:</b> Lines</p>
   <p>This map shows all commercial water routes within the Netherlands. In Amsterdam, commercial routes inside the city center are limited. The data indicates that the canals within Het IJ, (around) the Prinsengracht, and the Amstel are not designated for commercial boat travel. This implies that within the center of Amsterdam, there is indeed the possibility of hosting a swimming event, without interfering with commercial boat routes.</p>
   <h5>Data retrieved from: <a href="https://www.pdok.nl/introductie/-/article/vaarweg-informatie-nederland-vin-">PDOK</a></h5>
