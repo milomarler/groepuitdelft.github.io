@@ -104,6 +104,25 @@ body {
     height: auto;
 }
 
+.code-block {
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* Background color for the code block */
+    border-radius: 10px; /* Rounded corners */
+    width: 100%; /* Full width of the webpage */
+    display: flex; /* To make the code block height equal to the content */
+}
+
+/* Style the code */
+.python {
+    color: #333; /* Color for regular Python code */
+}
+
+/* Style comments (lines starting with #) */
+.python .comment {
+    color: #888; /* Color for Python comments */
+}
+  
 /* Footer */
 .footer {
   padding: 1.5px; /* Decrease the padding to make it smaller */
@@ -156,15 +175,17 @@ body {
   <br>
   <h2>AirBnB locations per neighbourhood</h2>
   <p></p>
-  <pre><code class="python">
-      #550 boats out of 7350 are commercial vessels - percentage?
-
-      number_commercial = 550
-
-      percentage_commercial = (100/number_boats) * number_commercial
-
-      print(percentage_commercial)
-</code></pre>
+  <div class="code-block">
+    <pre><code class="python">
+    # Your Python code here
+print("Hello, World!")
+x = 10
+if x > 5:
+    print("x is greater than 5")
+else:
+    print("x is not greater than 5")
+  </code></pre>
+  </div>
   <img src="Housing_1.png" alt="AirBnB Locations per Neighbourhood" class="full-width-image">
   <br>
   <h2>The street with the most Airbnb's</h2>
