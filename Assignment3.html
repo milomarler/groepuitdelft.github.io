@@ -168,7 +168,7 @@ body {
   <h2>Tourist tax income</h2>
   <p></p>
   <br>
-  <h2>AirBNB locations per neighbourhood</h2>
+  <h2>AirBnB locations per neighbourhood</h2>
   <p></p>
   <div class="code-block"><pre><code class="python">
   # Question 3.2
@@ -202,20 +202,137 @@ body {
   <br>
   <h2>The street with the most Airbnb's</h2>
   <p></p>
-  <div class="image-container">
-        <img src="Housing_2.png" alt="AirBnB coordinates in Amsterdam" class="half-width-image">
-        <img src="Housing_3.png" alt="Most frequent AirBnB coordinate" class="half-width-image">
-    </div>
+  <div class="code-block"><pre><code class="python">
+  # Question 3.3 (new using Folium)
+
+  import pandas as pd
+  import folium
+
+  # I loaded the data from the CSV file into the dataframe
+  df = pd.read_csv("C:/Users/yanni/OneDrive/Documenten/MADE_Data 1/Week 4_listings_GEBRUIK DEZE.csv.gz")
+
+  # I counted the frequency of each pair of coordinates
+  coordinate_counts = df.groupby(['latitude', 'longitude']).size().reset_index(name='Frequency')
+
+  # Then I created a Folium map
+  m = folium.Map(location=[df['latitude'].mean(), df['longitude'].mean()], zoom_start=12)
+
+  # I added markers to the map on all the locations where AirBnB's are found
+  for index, row in coordinate_counts.iterrows():
+      folium.Marker(
+          location=[row['latitude'], row['longitude']],
+          popup=f"Frequency: {row['Frequency']}",
+          fill=True,
+          fill_color='blue',
+      ).add_to(m)
+
+  #I plotted the map and saved it as an HTML file
+  m.save("coordinate_map.html")
+  m
+  </code></pre></div>
+  <img src="Housing_2.png" alt="AirBnB coordinates in Amsterdam" class="full-width-image">
+  <p></p>  
+  <div class="code-block"><pre><code class="python">
+  import pandas as pd
+  import folium
+
+  # I loaded the data from the CSV file into the dataframe
+  df = pd.read_csv("C:/Users/yanni/OneDrive/Documenten/MADE_Data 1/Week 4_listings_GEBRUIK DEZE.csv.gz")
+
+  # I counted the frequency of each pair of coordinates
+  coordinate_counts = df.groupby(['latitude', 'longitude']).size().reset_index(name='Frequency')
+
+  # Then I found the coordinate pair with the highest frequency
+  most_common_coordinate = coordinate_counts.sort_values(by='Frequency', ascending=False).iloc[0]
+
+  # I printed the info of the most common coordinate
+  print("Most Common Coordinate:")
+  print("latitude:", most_common_coordinate['latitude'])
+  print("longitude:", most_common_coordinate['longitude'])
+  print("Frequency:", most_common_coordinate['Frequency'])
+
+  # I created a map centered around the most common coordinate
+  map_center = [most_common_coordinate['latitude'], most_common_coordinate['longitude']]
+  m = folium.Map(location=map_center, zoom_start=15)
+
+  # And added a marker for the most common coordinate
+  folium.Marker(
+          location=map_center,
+          popup=f"Most Common Coordinate\nFrequency: {most_common_coordinate['Frequency']}",
+          fill=True,
+          fill_color='blue',
+      ).add_to(m)
+
+  # Then I saved the map as an HTML file
+  m.save("most_common_coordinate_map.html")
+
+  m
+  </code></pre></div>
+  <img src="Housing_3.png" alt="Most frequent AirBnB coordinate" class="full-width-image">
   <br>
   <h2>Indentifying Airbnb's as permanent housing</h2>
   <p></p>
+  <div class="code-block"><pre><code class="python">
+  import pandas as pd
+
+  airbnb_data = pd.read_csv(r"C:\Users\inesv\Documents\MADE\data\airbnb\listings.csv")
+  woningenAMS = pd.read_csv(r"C:\Users\inesv\Documents\MADE\data\airbnb\BBGA1.csv", sep = ";")
+
+
+  #airbnb's that are available throughout the whole year, data from airbnbsite
+  data = airbnb_data.iloc[:,15]
+  allyear = data==365
+  print(sum(allyear))
+  #so there are 36 airbnb's available throughout the whole year but a lot are also available for most of the time. which doesn't mean it's for housing perse
+
+  #creating bins steps of 10
+  bins = list(range(0, 366, 10))
+
+  #plotting data
+  plt.figure(figsize=(12, 6))
+  plt.hist(data, bins=[0, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 300, 310, 320, 330, 340, 350, 360, 370], alpha=0.5, color='green', label='Original Data')
+
+  plt.xlabel('Days Available per Year')
+  plt.ylabel('Number of Airbnbs')
+  plt.title('Airbnbs Availability Distribution')
+  plt.legend()
+  plt.xticks(rotation=45, ha='right')  # Rotate the X-axis labels for readability
+  plt.show()
+  </code></pre></div>
   <img src="Housing_4.jpeg" alt="AirBnB's Availability Distribution" class="full-width-image">
   <br>
   <h2>Determining the required number of hotel rooms</h2>
   <p></p>
+  <div class="code-block"><pre><code class="python">
+  import pandas as pd
+
+  #scenario
+  scenario = {
+      'tourists': 7400000,  # in 2023
+      'occupancyrate': 0.84,  # Occupancy rate for this scenario
+      'additionaltourists': 30000  # The additional tourists you want to accommodate (to be divided by 2.5)
+  }
+
+  # how many rooms are needed:
+  additionalhotelrooms = scenario['additionaltourists'] / (1 - (scenario['occupancyrate'] / 100))
+  additionalhotelrooms = round(additionalhotelrooms / 2.5)  # Split by 2.5
+
+  # result
+  print(f"Additional hotel rooms needed: {additionalhotelrooms}")
+  </code></pre></div>
   <br>
   <h2>Determining the amount of different licenses issued</h2>
   <p></p>
+  </code></pre></div>
+  import pandas as pd
+
+  licensedata = pd.read_csv(r"C:\Users\inesv\Documents\MADE\data\airbnb\listings.csv")
+
+  # Replace 'license_column_name' with the actual name of the column containing license information
+  licensesissued = licensedata['license'].nunique()
+
+  print("Number of different licenses issued:", licensesissued)
+  <div class="code-block"><pre><code class="python">
   <br>
   <h2>Conclusion</h2>
   <p></p>
