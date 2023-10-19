@@ -117,10 +117,6 @@ body {
     width: 100%; /* Full width of the webpage */
     overflow-x: auto; /* Enable horizontal scroll bar */
 }
-
-.code-scrollable {
-    overflow-x: auto; /* Enable horizontal scroll bar */
-}
     
 /* Footer */
 .footer {
@@ -275,7 +271,7 @@ body {
   <br>
   <h2>Indentifying Airbnb's as permanent housing</h2>
   <p></p>
-  <div class="code-container"><div class="code-scrollable"><pre><code class="python">
+  <div class="code-container"><pre><code class="python">
   # Question 3.4
   import pandas as pd
 
@@ -287,14 +283,14 @@ body {
   data = airbnb_data.iloc[:,15]
   allyear = data==365
   print(sum(allyear))
-  #so there are 36 airbnb's available throughout the whole year but a lot are also available for most of the time. which doesn't mean it's for housing perse
+  #so there are 36 airbnb's available throughout the whole year but a lot are also available for most of the time. 
 
   #creating bins steps of 10
   bins = list(range(0, 366, 10))
 
   #plotting data
   plt.figure(figsize=(12, 6))
-  plt.hist(data, bins=[0, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 300, 310, 320, 330, 340, 350, 360, 370], alpha=0.5, color='green', label='Original Data')
+  plt.hist(data, bins=[0, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, etc.], alpha=0.5, color='green', label='Original Data')
 
   plt.xlabel('Days Available per Year')
   plt.ylabel('Number of Airbnbs')
@@ -302,7 +298,7 @@ body {
   plt.legend()
   plt.xticks(rotation=45, ha='right')  # Rotate the X-axis labels for readability
   plt.show()
-  </code></pre></div></div>
+  </code></pre></div>
   <img src="Housing_4.jpeg" alt="AirBnB's Availability Distribution" class="full-width-image">
   <br>
   <h2>Determining the required number of hotel rooms</h2>
