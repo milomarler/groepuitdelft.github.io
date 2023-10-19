@@ -113,7 +113,27 @@ body {
   font-size: 7px; /* Decrease the font size to make it smaller */
 }
 
+/* Style the code container */
+.code-container {
+    width: 100%;
+}
 
+/* Style the code block */
+.code {
+    background-color: #f0f0f0; /* Background color for the code block */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px;
+    line-height: 1.2; /* Adjust line height for readability */
+    font-family: monospace; /* Use a monospace font for code */
+
+    /* Set the text color for code */
+    color: #333;
+}
+
+/* Style Python comments */
+.code .comment {
+    color: #888; /* Use a different color for comments */
+}
 
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
 @media screen and (max-width: 400px) {
@@ -151,9 +171,9 @@ body {
   <br>
   <h2>AirBnB locations per neighbourhood</h2>
   <p></p>
-  <div>
+  <div class="code-container">
   <pre><code class="python">
-  # Question 3.2
+# Question 3.2
 
 import pandas as pd
 import matplotlib.pyplot as plt
