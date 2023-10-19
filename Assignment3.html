@@ -303,9 +303,38 @@ body {
   <br>
   <h2>Determining the required number of hotel rooms</h2>
   <p></p>
+  <div class="code-container"><pre><code class="python">
+  # Question 3.5
+  import pandas as pd
+
+  #scenario
+  scenario = {
+      'tourists': 7400000,  # in 2023
+      'occupancyrate': 0.84,  # Occupancy rate for this scenario
+      'additionaltourists': 30000  # The additional tourists you want to accommodate (to be divided by 2.5)
+  }
+
+  # how many rooms are needed:
+  additionalhotelrooms = scenario['additionaltourists'] / (1 - (scenario['occupancyrate'] / 100))
+  additionalhotelrooms = round(additionalhotelrooms / 2.5)  # Split by 2.5
+
+  # result
+  print(f"Additional hotel rooms needed: {additionalhotelrooms}")
+  </code></pre></div>
   <br>
   <h2>Determining the amount of different licenses issued</h2>
   <p></p>
+  <div class="code-container"><pre><code class="python">
+  # Question 3.5
+  import pandas as pd
+
+  licensedata = pd.read_csv(r"C:\Users\inesv\Documents\MADE\data\airbnb\listings.csv")
+
+  # Replace 'license_column_name' with the actual name of the column containing license information
+  licensesissued = licensedata['license'].nunique()
+
+  print("Number of different licenses issued:", licensesissued)
+  </code></pre></div>
   <br>
   <h2>Conclusion</h2>
   <p></p>
