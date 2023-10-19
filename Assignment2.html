@@ -87,8 +87,8 @@ body {
 
 /* Fake image, just for this example */
 .full-width-image {
-  width: auto;
-  height: 100%;
+  width: 50%;
+  height: auto;
   display: block;
   margin: 0 auto; /* Center horizontally */
 }
@@ -104,18 +104,6 @@ body {
     height: auto;
 }
 
-  .content-container {
-    display: flex;
-    align-items: flex-start;
-  }
-  .text-content-container {
-    flex: 1;
-    padding-right: 20px; /* Adjust the padding as needed */
-  }
-  .image {
-    max-height: 100%;
-  }
-  
 /* Footer */
 .footer {
   padding: 1.5px; /* Decrease the padding to make it smaller */
@@ -174,14 +162,8 @@ body {
   <p>The graphs above illustrate the fluctuation of time spent on boats throughout the day in Amsterdam between the months of July and August from 2019 to 2022. As you can see, most boat activity occurs during the afternoon, with the number of boat hours consistently exceeding 80 between 12:00 and 18:00. The highest number of boat hours is reached at 16:00.</p>
   <br>
   <h2>Energy use canal boats in relation to public transport</h2>
-<div class="content-container">
-  <div class="text">
-    <p>
-      Most canal boats that aren't electrified use diesel motors with a power of 50 hp, equivalent to 37 kW. The average tour time is 75 minutes, resulting in an energy consumption of 45 kWh per trip. When calculating the energy consumption per passenger-kilometer, it amounts to 0.075 kWh with a capacity of 80 persons.<br>Blue Boat Company operates electric canal boats that consume 22 kW of power in 75 minutes, totaling 27.5 kWh per trip. These boats can accommodate up to 80 people and have a maximum speed of 6 km/h, resulting in a total trip length of 7.5 km in 75 minutes. The energy consumption per passenger-kilometer is 0.046 kWh at full capacity.<br>The table below displays the energy consumption per passenger-kilometer of public transport in Amsterdam, based on GVB data from 2020. Comparing this data to electric and diesel canal boats, it's evident that electric canal boats are the most efficient.
-    </p>
-  </div>
-  <img src="Energy_3.PNG" alt="Energy usage GVB" class="image">
-</div>
+  <p>Most canal boats that aren't electrified use diesel motors with a power of 50 hp, equivalent to 37 kW. The average tour time is 75 minutes, resulting in an energy consumption of 45 kWh per trip. When calculating the energy consumption per passenger-kilometer, it amounts to 0.075 kWh with a capacity of 80 persons.<br>Blue Boat Company operates electric canal boats that consume 22 kW of power in 75 minutes, totaling 27.5 kWh per trip. These boats can accommodate up to 80 people and have a maximum speed of 6 km/h, resulting in a total trip length of 7.5 km in 75 minutes. The energy consumption per passenger-kilometer is 0.046 kWh at full capacity.<br>The table below displays the energy consumption per passenger-kilometer of public transport in Amsterdam, based on GVB data from 2020. Comparing this data to electric and diesel canal boats, it's evident that electric canal boats are the most efficient.</p>
+  <img src="Energy_3.PNG" alt="Energy usage GVB" class="full-width-image">
   <br>
   <h2>Economical feasibility</h2>
   <p>According to Reuters (2020), it costs 1.1 million euros to build a new electric canal boat. Building 140 new electric canal boats would amount to 154 million euros. This is a substantial investment. However, transforming existing canal boats into electric ones costs significantly less, approximately 50,000 euros. Transforming all 140 fossil-powered boats would result in an investment of 7 million euros. Furthermore, with policies that will require boats to be electric by 2025, these costs can be imposed on canal boat owners.</p>
