@@ -117,7 +117,11 @@ body {
     width: 100%; /* Full width of the webpage */
     overflow-x: auto; /* Enable horizontal scroll bar */
 }
-  
+
+.code-scrollable {
+    overflow-x: auto; /* Enable horizontal scroll bar */
+}
+    
 /* Footer */
 .footer {
   padding: 1.5px; /* Decrease the padding to make it smaller */
@@ -271,7 +275,7 @@ body {
   <br>
   <h2>Indentifying Airbnb's as permanent housing</h2>
   <p></p>
-  <div class="code-container"><pre><code class="python">
+  <div class="code-container"><div class="code-scrollable"><pre><code class="python">
   # Question 3.4
   import pandas as pd
 
@@ -298,7 +302,7 @@ body {
   plt.legend()
   plt.xticks(rotation=45, ha='right')  # Rotate the X-axis labels for readability
   plt.show()
-  </code></pre></div>
+  </code></pre></div></div>
   <img src="Housing_4.jpeg" alt="AirBnB's Availability Distribution" class="full-width-image">
   <br>
   <h2>Determining the required number of hotel rooms</h2>
