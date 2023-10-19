@@ -202,10 +202,72 @@ body {
   <br>
   <h2>The street with the most Airbnb's</h2>
   <p></p>
-  <div class="image-container">
-        <img src="Housing_2.png" alt="AirBnB coordinates in Amsterdam" class="half-width-image">
-        <img src="Housing_3.png" alt="Most frequent AirBnB coordinate" class="half-width-image">
-    </div>
+  <div class="code-block"><pre><code class="python">
+  # Question 3.3 (new using Folium)
+
+  import pandas as pd
+  import folium
+
+  # I loaded the data from the CSV file into the dataframe
+  df = pd.read_csv("C:/Users/yanni/OneDrive/Documenten/MADE_Data 1/Week 4_listings_GEBRUIK DEZE.csv.gz")
+
+  # I counted the frequency of each pair of coordinates
+  coordinate_counts = df.groupby(['latitude', 'longitude']).size().reset_index(name='Frequency')
+
+  # Then I created a Folium map
+  m = folium.Map(location=[df['latitude'].mean(), df['longitude'].mean()], zoom_start=12)
+
+  # I added markers to the map on all the locations where AirBnB's are found
+  for index, row in coordinate_counts.iterrows():
+      folium.Marker(
+          location=[row['latitude'], row['longitude']],
+          popup=f"Frequency: {row['Frequency']}",
+          fill=True,
+          fill_color='blue',
+      ).add_to(m)
+
+  #I plotted the map and saved it as an HTML file
+  m.save("coordinate_map.html")
+  m
+  </code></pre></div>
+  <img src="Housing_2.png" alt="AirBnB coordinates in Amsterdam" class="full-width-image">
+  <div class="code-block"><pre><code class="python">
+  import pandas as pd
+  import folium
+
+  # I loaded the data from the CSV file into the dataframe
+  df = pd.read_csv("C:/Users/yanni/OneDrive/Documenten/MADE_Data 1/Week 4_listings_GEBRUIK DEZE.csv.gz")
+
+  # I counted the frequency of each pair of coordinates
+  coordinate_counts = df.groupby(['latitude', 'longitude']).size().reset_index(name='Frequency')
+
+  # Then I found the coordinate pair with the highest frequency
+  most_common_coordinate = coordinate_counts.sort_values(by='Frequency', ascending=False).iloc[0]
+
+  # I printed the info of the most common coordinate
+  print("Most Common Coordinate:")
+  print("latitude:", most_common_coordinate['latitude'])
+  print("longitude:", most_common_coordinate['longitude'])
+  print("Frequency:", most_common_coordinate['Frequency'])
+
+  # I created a map centered around the most common coordinate
+  map_center = [most_common_coordinate['latitude'], most_common_coordinate['longitude']]
+  m = folium.Map(location=map_center, zoom_start=15)
+
+  # And added a marker for the most common coordinate
+  folium.Marker(
+          location=map_center,
+          popup=f"Most Common Coordinate\nFrequency: {most_common_coordinate['Frequency']}",
+          fill=True,
+          fill_color='blue',
+      ).add_to(m)
+
+  # Then I saved the map as an HTML file
+  m.save("most_common_coordinate_map.html")
+
+  m
+  </code></pre></div>
+  <img src="Housing_3.png" alt="Most frequent AirBnB coordinate" class="full-width-image">
   <br>
   <h2>Indentifying Airbnb's as permanent housing</h2>
   <p></p>
