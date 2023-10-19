@@ -120,15 +120,24 @@ body {
     background-color: #f0f0f0; /* Background color for the code block */
     border: 1px solid #ccc; /* Border around the code block */
     padding: 10px; /* Add padding for readability */
+    border-radius: 10px; /* Add rounded corners */
 }
 
 .code-container pre {
     margin: 0;
     font-family: 'Courier New', monospace; /* Use a monospaced font for code */
+    padding-left: 0; /* Remove padding on the left side of the code block */
 }
 
 .code-container .python {
     color: #007A33; /* Set the text color for Python code */
+}
+
+/* Style for Python comments */
+.code-container .python::before {
+    content: '/*'; /* Add a comment symbol before each comment line */
+    color: #888; /* Change the color of comments to gray */
+    margin-right: 5px; /* Add spacing between the comment symbol and the text */
 }
   
 /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
