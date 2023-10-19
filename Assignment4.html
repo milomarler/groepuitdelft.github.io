@@ -24,17 +24,17 @@ body {
   color: white;
 }
 
+/* Increase the font size of the heading */
+.header h1 {
+  font-size: 40px;
+}
+
 .header a {
   display: block;
   height: 100%; /* Ensure the anchor fills the entire header */
   width: 100%;
   text-decoration: none; /* Remove underline on the anchor text */
   color: inherit; /* Inherit the color from the parent element */
-}
-
-/* Increase the font size of the heading */
-.header h1 {
-  font-size: 40px;
 }
 
 /* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
@@ -82,13 +82,26 @@ body {
   flex: 70%;
   background-color: white;
   padding: 20px;
+  margin: 0 150px; /* Add margin to the left and right sides */
 }
 
 /* Fake image, just for this example */
-.fakeimg {
-  background-color: #aaa;
-  width: 100%;
-  padding: 20px;
+.full-width-image {
+  width: 50%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Center horizontally */
+}
+
+.image-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.half-width-image {
+    max-width: 50%;
+    height: auto;
 }
 
 /* Footer */
@@ -140,6 +153,10 @@ body {
   <br>
   <h2>Proposed swimming route</h2>
   <p></p>
+  <div class="image-container">
+        <img src="Transport_1.png" alt="Peak boat hours per day" class="half-width-image">
+        <img src="Transport_2.png" alt="Peak times canal boats" class="half-width-image">
+  </div>
   <br>
   <h2>Centre of the swimming route</h2>
   <p></p>
