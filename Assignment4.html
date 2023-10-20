@@ -183,30 +183,6 @@ body {
   marker = folium.Marker(location=[52.383634, 4.882914], popup="1")
   marker.add_to(m)
 
-  marker = folium.Marker(location=[52.373856, 4.876812], popup="2")
-  marker.add_to(m)
-
-  marker = folium.Marker(location=[52.371893, 4.876077], popup="3")
-  marker.add_to(m)
-
-  marker = folium.Marker(location=[52.367657, 4.879034], popup="4")
-  marker.add_to(m)
-
-  marker = folium.Marker(location=[52.368711, 4.882149], popup="5")
-  marker.add_to(m)
-
-  marker = folium.Marker(location=[52.368804, 4.882159], popup="6")
-  marker.add_to(m)
-
-  marker = folium.Marker(location=[52.367833, 4.879126], popup="7")
-  marker.add_to(m)
-
-  marker = folium.Marker(location=[52.371927, 4.876282], popup="8")
-  marker.add_to(m)
-
-  marker = folium.Marker(location=[52.373907, 4.876964], popup="9")
-  marker.add_to(m)
-
   marker = folium.Marker(location=[52.383462, 4.882933], popup="10")
   marker.add_to(m)
 
@@ -217,14 +193,6 @@ body {
   point_coordinates = [
       [52.380683, 4.888178],
       [52.383634, 4.882914],
-      [52.373856, 4.876812],
-      [52.371893, 4.876077],
-      [52.367657, 4.879034],
-      [52.368711, 4.882149],
-      [52.368804, 4.882159],
-      [52.367833, 4.879126],
-      [52.371927, 4.876282],
-      [52.373907, 4.876964],
       [52.383462, 4.882933],
       [52.380583, 4.888138]
   ]
@@ -254,14 +222,6 @@ body {
   point_coordinates = [
       [52.380683, 4.888178],
       [52.383634, 4.882914],
-      [52.373856, 4.876812],
-      [52.371893, 4.876077],
-      [52.367657, 4.879034],
-      [52.368711, 4.882149],
-      [52.368804, 4.882159],
-      [52.367833, 4.879126],
-      [52.371927, 4.876282],
-      [52.373907, 4.876964],
       [52.383462, 4.882933],
       [52.380583, 4.888138]
   ]
@@ -282,7 +242,9 @@ body {
       accumulated_distance += great_circle(point_coordinates[i], point_coordinates[i+1]).kilometers
       i += 1
 
-  halfway_point = [(point_coordinates[i][0] + point_coordinates[i+1][0]) / 2, (point_coordinates[i][1] + point_coordinates[i+1][1]) / 2]
+  point_1 = (point_coordinates[i][0] + point_coordinates[i+1][0]) / 2
+  point_2 = (point_coordinates[i][1] + point_coordinates[i+1][1]) / 2
+  halfway_point = [point_1, point_2]
 
   # I added a marker for the halfway point
   folium.Marker(location=halfway_point, popup="Halfway Point").add_to(m)
@@ -496,7 +458,7 @@ body {
       cafe_markers = folium.FeatureGroup(name='Cafes')
       restaurant_markers = folium.FeatureGroup(name='Restaurants')
 
-      # blue markers for cafes and green for restaurants. I named cafes "cafes/bars"because they are kind of the same
+      # blue markers for cafes/bars and green for restaurants.
       for element in data['elements']:
           if 'tags' in element:
               tags = element['tags']
@@ -533,7 +495,7 @@ body {
    # amount of cafes and restaurants
       print(f"Number of cafes: {cafe_count}")
       print(f"Number of restaurants: {restaurant_count}")
-  #limit: I don't think the roads are taken into account. so many of these places are further away than 10 minutes but in the range of 700 meters.
+  #limit: I don't think the roads are taken into account. so places are in the range of 700 meters.
   m
   </code></pre></div>
   <img src="Transport_9.jpeg" alt="Closest cafes and restaurants zoomed in" class="full-width-image">
