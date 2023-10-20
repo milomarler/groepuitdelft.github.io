@@ -92,7 +92,7 @@ body {
 
 /* Fake image, just for this example */
 .full-width-image {
-  width: 50%;
+  width: 100%;
   height: auto;
   display: block;
   margin: 0 auto; /* Center horizontally */
@@ -166,7 +166,7 @@ body {
   <p><i>The Municipality wants you to find a location for the Event Headquarters. They decided it would be best if this E.H. is as close to the centre of the swimming route. There is a bit of a concern for the after party and the stream of visitors. They want you to quantify the number of visitors that can reach the event and the capacity for festivities after the event.</i></p>
   <br>
   <h2>Proposed swimming route</h2>
-  <p></p>
+  <p>Our proposed swimming route navigates through de Jordaan, commencing at Brouwersgracht and progressing along Lijnbaansgracht and Marnixstraat, concluding at Looiersgracht before returning to the starting point. The entire route spans just over 5 kilometers, with minimal impact on commercial and canal boat routes.</p>
   <div class="code-container"><pre><code class="python">
   # Question 4.0
   # Our route through the Jordaan
@@ -205,10 +205,11 @@ body {
 
   m
   </code></pre></div>
+  <br>
   <img src="Transport_1.png" alt="Proposed swimming route" class="full-width-image">
   <br>
   <h2>Centre of the swimming route</h2>
-  <p></p>
+  <p>Identifying the central point of our proposed swimming route, we've pinpointed it at the end of Looiersgracht. This specific location, home to Looierssluis, will serve as our Event Headquarters and will be secured accordingly.</p>
   <div class="code-container"><pre><code class="python">
   # Question 4.2
 
@@ -252,10 +253,11 @@ body {
   # And plotted the map
   m
   </code></pre></div>
+  <br>
   <img src="Transport_3.png" alt="Centre of swimming route" class="full-width-image">
   <br>
   <h2>The closest bus and tram stops at the start and finish of the swimming route</h2>
-  <p></p>
+  <p>The visualization depicts all public transport stations in the vicinity of the finish line. It's worth noting that while trams and metros are accounted for in the available data, information regarding busroutes is regrettably unavailable.</p>
   <div class="code-container"><pre><code class="python">
   # Question 4.3
     
@@ -282,10 +284,11 @@ body {
 
   m
   </code></pre></div>
+  <br>
   <img src="Transport_4.jpeg" alt="Closest bus and tram stops" class="full-width-image">
   <br>
   <h2>The bus and tram lines, and their routes</h2>
-  <p></p>
+  <p>The assessment considers the proximity of tram and bus stops, with trams accommodating up to 185 passengers (factoring in a 15-passenger comfort reduction) and buses with a capacity of 60 (adjusting for a 10-passenger comfort reduction). Tram services run six times per hour, while buses operate ten times hourly, collectively offering a capacity of 7,080 individuals per hour. Notably, the Marnixplein station, closest to the finish line, emerges as a central transportation hub.</p>
   <div class="code-container"><pre><code class="python">
   # Question 4.3
     
@@ -343,8 +346,9 @@ body {
           ).add_to(m)
   m
   </code></pre></div>
+  <br>
   <img src="Transport_5.jpeg" alt="Closest tramstop" class="full-width-image">
-  <p></p>
+  <p>The nearest tram line is tram 5, as depicted below. While this may be the closest tramline, it's advisable to evaluate other stations and their accessibility when choosing a suitable starting and finishing point.</p>
   <div class="code-container"><pre><code class="python">
   # Question 4.3
     
@@ -377,7 +381,7 @@ body {
   <img src="Transport_6.jpeg" alt="Tramline 8" class="full-width-image">
   <br>
   <h2>Centrality of swimming route</h2>
-  <p></p>
+  <p>Closeness centrality was selected as the most suitable metric. In essence, it quantifies how closely a node is connected to others indirectly, with more central nodes requiring shorter paths to access the network. On the other hand, betweenness centrality identifies nodes that act as crucial intermediaries among various network nodes (AxU Platform, 2021).<br>Concerning the outcomes, we find the closeness centrality results intriguing but somewhat unconventional, given that our chosen finish point coincides with the network's starting point.</p>
   <div class="code-container"><pre><code class="python">
   # Question 4.4
     
@@ -425,7 +429,7 @@ body {
   <img src="Transport_7.jpeg" alt="Centrality" class="full-width-image">
   <br>
   <h2>All cafes, restaurants near the finish line</h2>
-  <p></p>
+  <p>The map shows restaurants and cafes within a 700-meter walking distance. This distance, while it might seem conservative considering one can cover more ground in about 10 minutes, was intentional. It stems from the challenge of accurately accounting for street layouts and accessibility. Opting for a 700-meter radius acknowledges that certain places may be less straightforward to reach.</p>
   <div class="code-container"><pre><code class="python">
   # Question 4.5
     
@@ -501,13 +505,10 @@ body {
   <img src="Transport_9.jpeg" alt="Closest cafes and restaurants zoomed in" class="full-width-image">
   <br>
   <h2>Conclusion</h2>
-  <p></p>
-  <br>
-  <h2>Reccomendations</h2>
-  <p></p>
+  <p>Our proposed route in de Jordaan spans just over 5 kilometers and minimally impacts commercial and canal boat routes. Looierssluis is selected as the central Event Headquarters. Tram and metro stations are accessible, although bus route data is lacking. Trams carry 185 passengers, while buses accommodate 60, resulting in a combined hourly capacity of 7,080 passengers. Closeness centrality metrics revealed unique results, attributed to the chosen start and finish point. A 700-meter radius is used to map nearby restaurants and cafes, balancing accessibility and coverage challenges.</p>
   <br>
   <h2>References</h2>
-  <p></p>
+  <p>AxU Platform. (2021, December 15). <i>Centrality Analysis.</i> Medium. Retrieved October 18, 2023, from https://axuplatform.medium.com/centrality-analysis-832ae76a6eca</p>
   </div>
 </div>
 
